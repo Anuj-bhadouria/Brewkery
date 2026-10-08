@@ -5,7 +5,6 @@ AI tools were used as development assistance throughout the project. They were m
 ### Tools Used
 
 - Claude
-- ChatGPT
 - Gemini in Android Studio
 
 ### How AI Was Used
