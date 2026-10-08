@@ -29,20 +29,21 @@ Brewkery is a native Android coffee and bakery ordering application built as par
 
 ## API
 
-**Base URL**
+Base URL
 
 ```text
 https://raw.githubusercontent.com/VivekShah138/Brewkery/main/Endpoints
 ```
 
+## Endpoints
+
+```text
 GET /data.json
 GET /api/items/{id}.json
-Architecture
-UI → ViewModel → Repository → Retrofit API
+```
+## Architecture
 
-The project is organized into:
-
-com.AB.brewkery/
+```com.AB.brewkery/
 ├── data/
 │   ├── api/
 │   ├── model/
@@ -56,52 +57,54 @@ com.AB.brewkery/
 │   ├── menu/
 │   └── status/
 └── MainActivity.kt
+```
+
 ## Testing
 
 Unit tests are included for the pricing logic in PriceCalculatorTest.
-
 The checkout calculation follows:
-
+```
 Subtotal + 8% Tax + $2.50 Delivery = Total
-
+```
 Example:
-
+```
 $9.40 + $0.75 + $2.50 = $12.65
-
-
-
+```
 ## AI Assistance
 
-AI tools were used as development assistance throughout the project. They were mainly used for breaking the assignment into manageable phases, understanding requirements, interpreting errors and crashes, reviewing implementation approaches, and helping with documentation.
+AI tools were used during development as a supporting resource for planning, debugging, implementation guidance, and documentation.
 
 ### Tools Used
+    Claude
+    Gemini in Android Studio
+    How AI Was Used
 
-- Claude
-- Gemini in Android Studio
+### AI assistance was mainly used to:
 
-### How AI Was Used
+- Identify the tools, libraries, and technologies required for the project.
+- Break the assignment into manageable development phases.
+- Understand requirements and API-related details.
+- Explain Android/Kotlin/Jetpack Compose errors.
+- Analyse build errors, runtime errors, and crash logs.
+- Suggest possible approaches when troubleshooting issues.
+- Assist with project documentation and README preparation.
 
-AI assistance was used for:
+## Actual Prompts Used
+```"I applied for an Android Developer role and have been tasked with building this application. Here is the assignment guide. Help me understand the requirements and identify the tools and libraries I will need for the project."```
 
-- Breaking the assignment into development phases and planning the implementation.
-- Understanding the provided API structure and requirements.
-- Explaining Android, Kotlin, and Jetpack Compose errors.
-- Analysing crash messages and helping identify their likely causes.
-- Reviewing implementation approaches and suggesting possible solutions.
-- Assisting with documentation and README preparation.
+```"Now that I understand the requirements, let's divide the implementation into phases so that each phase can be tested and debugged before moving to the next one, and make the final unit testing easier."```
 
-### What AI Got Right
+```"Here is the Android error/crash log. Help me understand what is causing the issue and where I should investigate in the project."```
+## What AI Got Right
 
-AI was particularly useful during debugging. By providing the relevant error messages and logs, I was able to understand what was causing certain build and runtime issues much faster.
+  AI was useful for breaking the project into smaller development phases and identifying relevant issues from build errors, runtime errors, and logs. This made it easier to work through the implementation and debugging process step by step.
 
-It was also useful for breaking down the assignment into smaller implementation phases, which helped keep the development process organised within the given time limit.
+## What AI Got Wrong
 
-### What AI Got Wrong
+Some suggested approaches did not directly resolve the underlying issue. During one runtime issue, the application still failed after following the suggested approach.
 
-AI did not always provide the correct fix. For example, during one debugging issue, Claude suggested restarting/re-running the application as a possible solution. Restarting did not resolve the underlying problem.
+## How I Fixed It
 
-### How I Fixed It
+I investigated the error using the available logs and the relevant project code, identified the underlying cause, implemented the required fix, and re-tested the application to verify that the issue was resolved.
 
-I used the error information and suggestions from AI as a starting point, then investigated the relevant code and project configuration myself. I identified the actual cause, implemented the fix, and rebuilt and tested the application to verify that the issue was resolved.
-
-AI was therefore used primarily for assistance and error recognition; the final implementation, fixes, and verification were done by me.
+AI suggestions were treated as development assistance, while the final implementation, debugging, testing, and verification were performed during the development process.
