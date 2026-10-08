@@ -90,11 +90,11 @@ AI tools were used during development as a supporting resource for planning, deb
 - Assist with project documentation and README preparation.
 
 ## Actual Prompts Used
-```"I applied for an Android Developer role and have been tasked with building this application. Here is the assignment guide. Help me understand the requirements and identify the tools and libraries I will need for the project."```
+```"I applied for an Android Developer role and have been tasked with building this application here is the assignment guide help me understand the requirements nd identify the tools and libraries i will be needing for this project"```
 
-```"Now that I understand the requirements, let's divide the implementation into phases so that each phase can be tested and debugged before moving to the next one, and make the final unit testing easier."```
+```"now that i understand  the requirements let's divide the implementation into phases so that each phase can be tested and debugged before moving to the next one and make the final unit testing easier"```
 
-```"Here is the Android error/crash log. Help me understand what is causing the issue and where I should investigate in the project."```
+```"here is the android error crash log help me understand what is causing this issue nd where i  should look and solve the porj"```
 ## What AI Got Right
 
   AI was useful for breaking the project into smaller development phases and identifying relevant issues from build errors, runtime errors, and logs. This made it easier to work through the implementation and debugging process step by step.
