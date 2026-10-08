@@ -1,3 +1,75 @@
+# Brewkery
+
+Brewkery is a native Android coffee and bakery ordering application built as part of an Android Developer technical assignment.
+
+## Features
+
+- API-driven menu
+- Category filtering
+- Product details and ingredients
+- Dynamic product customization and pricing
+- Cart management and quantity controls
+- $2.50 delivery charge and 8% tax calculation
+- Simulated order placement and `PREPARING` status
+- Active order tracking
+- Loading and error states
+- Unit testing for pricing logic
+
+## Tech Stack
+
+- Kotlin
+- Jetpack Compose
+- Material 3
+- Retrofit
+- Kotlin Coroutines
+- ViewModel
+- StateFlow
+- Coil
+- JUnit
+
+## API
+
+**Base URL**
+
+```text
+https://raw.githubusercontent.com/VivekShah138/Brewkery/main/Endpoints
+```
+
+GET /data.json
+GET /api/items/{id}.json
+Architecture
+UI → ViewModel → Repository → Retrofit API
+
+The project is organized into:
+
+com.AB.brewkery/
+├── data/
+│   ├── api/
+│   ├── model/
+│   └── repository/
+├── domain/
+│   ├── CartItem
+│   └── PriceCalculator
+├── UI/
+│   ├── cart/
+│   ├── detail/
+│   ├── menu/
+│   └── status/
+└── MainActivity.kt
+## Testing
+
+Unit tests are included for the pricing logic in PriceCalculatorTest.
+
+The checkout calculation follows:
+
+Subtotal + 8% Tax + $2.50 Delivery = Total
+
+Example:
+
+$9.40 + $0.75 + $2.50 = $12.65
+
+
+
 ## AI Assistance
 
 AI tools were used as development assistance throughout the project. They were mainly used for breaking the assignment into manageable phases, understanding requirements, interpreting errors and crashes, reviewing implementation approaches, and helping with documentation.
