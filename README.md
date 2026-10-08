@@ -107,4 +107,5 @@ Some suggested approaches did not directly resolve the underlying issue. During 
 
 I investigated the error using the available logs and the relevant project code, identified the underlying cause, implemented the required fix, and re-tested the application to verify that the issue was resolved.
 
-AI suggestions were treated as development assistance, while the final implementation, debugging, testing, and verification were performed during the development process.
+
+**AI suggestions were treated as development assistance, while the final implementation, debugging, testing, and verification were performed during the development process.**
