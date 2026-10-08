@@ -13,11 +13,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.AB.brewkery.UI.cart.CartScreen
 import com.AB.brewkery.UI.cart.CartViewModel
 import com.AB.brewkery.UI.detail.ItemDetailScreen
 import com.AB.brewkery.UI.menu.MenuScreen
 import com.AB.brewkery.UI.menu.MenuUiState
 import com.AB.brewkery.UI.menu.MenuViewModel
+import com.AB.brewkery.UI.status.OrderStatusScreen
 import com.AB.brewkery.domain.PriceCalculator
 
 class MainActivity : ComponentActivity() {
@@ -42,16 +44,18 @@ fun BrewkeryApp() {
     val placedOrder by cartVm.placedOrder.collectAsStateWithLifecycle()
 
     NavHost(navController = navController, startDestination = "menu") {
+
         composable("menu") {
             MenuScreen(
                 viewModel = menuVm,
                 onItemClick = { id -> navController.navigate("detail/$id") },
                 cartCount = cartItems.sumOf { it.quantity },
                 cartTotal = PriceCalculator.round2(cartItems.sumOf { it.lineTotal }),
-                onCartClick = { /* cart screen comes next */ },
+                onCartClick = { navController.navigate("cart") },
                 activeTicketId = placedOrder?.ticketId
             )
         }
+
         composable(
             route = "detail/{id}",
             arguments = listOf(navArgument("id") { type = NavType.IntType })
@@ -68,6 +72,35 @@ fun BrewkeryApp() {
                         cartVm.add(it)
                         navController.popBackStack()
                     }
+                )
+            }
+        }
+
+        composable("cart") {
+            val meta = (menuState as? MenuUiState.Success)?.data?.meta
+            if (meta != null) {
+                CartScreen(
+                    items = cartItems,
+                    meta = meta,
+                    onQuantityChange = cartVm::changeQuantity,
+                    onRemove = cartVm::remove,
+                    onPlaceOrder = {
+                        cartVm.placeOrder()
+                        navController.navigate("status") { popUpTo("menu") }
+                    },
+                    onBack = { navController.popBackStack() }
+                )
+            }
+        }
+
+        composable("status") {
+            val meta = (menuState as? MenuUiState.Success)?.data?.meta
+            val order = placedOrder
+            if (meta != null && order != null) {
+                OrderStatusScreen(
+                    order = order,
+                    estimatedWait = meta.estimatedDeliveryTime,
+                    onBackToMenu = { navController.popBackStack("menu", inclusive = false) }
                 )
             }
         }
