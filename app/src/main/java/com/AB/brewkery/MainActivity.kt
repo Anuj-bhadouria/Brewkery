@@ -20,13 +20,14 @@ import com.AB.brewkery.UI.menu.MenuScreen
 import com.AB.brewkery.UI.menu.MenuUiState
 import com.AB.brewkery.UI.menu.MenuViewModel
 import com.AB.brewkery.UI.status.OrderStatusScreen
+import com.AB.brewkery.UI.theme.BrewkeryTheme
 import com.AB.brewkery.domain.PriceCalculator
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MaterialTheme {
+            BrewkeryTheme {
                 BrewkeryApp()
             }
         }
